@@ -16,6 +16,7 @@ const query = groq`
 
 const HomePage = async () => {
     if (previewData()) {
+        console.log('preview data');
         return (
             <PreviewSuspense
                 fallback={
@@ -31,6 +32,7 @@ const HomePage = async () => {
     }
 
     const posts = await client.fetch(query);
+    console.log('NOT preview data');
     return (
         <div>
             <Banner />
